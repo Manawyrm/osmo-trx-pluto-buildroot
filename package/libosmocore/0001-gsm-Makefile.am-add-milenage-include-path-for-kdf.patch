@@ -1,0 +1,19 @@
+From: Buildroot <buildroot@buildroot.org>
+Date: Thu, 26 Jun 2026 00:00:00 +0000
+Subject: [PATCH] gsm/Makefile.am: add milenage include path for kdf sources
+
+The kdf/sha*.c files include "crypto.h" which lives in the milenage/
+subdirectory. Without an explicit -I path the compiler cannot find it.
+Add the milenage directory to AM_CPPFLAGS so the include resolves when
+building without GnuTLS.
+
+--- a/src/gsm/Makefile.am
++++ b/src/gsm/Makefile.am
+@@ -4,6 +4,7 @@
+ LIBVERSION=24:1:4
+
+ AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_builddir)/include
++AM_CPPFLAGS += -I$(top_srcdir)/src/gsm/milenage
+ AM_CFLAGS = -Wall $(TALLOC_CFLAGS)
+
+ if ENABLE_PSEUDOTALLOC

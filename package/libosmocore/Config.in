@@ -1,0 +1,9 @@
+config BR2_PACKAGE_LIBOSMOCORE
+	bool "libosmocore"
+	select BR2_PACKAGE_LIBTALLOC
+	help
+	  A collection of common code used in various Osmocom GSM/cellular
+	  infrastructure projects. Provides libosmocore, libosmovty,
+	  libosmoctrl, libosmocoding, libosmogsm and related libraries.
+
+	  https://osmocom.org/projects/libosmocore/wiki/Libosmocore

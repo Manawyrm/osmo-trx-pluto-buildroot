@@ -1,0 +1,20 @@
+config BR2_PACKAGE_OSMO_TRX_PLUTO
+	bool "osmo-trx-pluto"
+	depends on BR2_INSTALL_LIBSTDCPP
+	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on BR2_ARM_CPU_HAS_NEON
+	select BR2_PACKAGE_LIBOSMOCORE
+	select BR2_PACKAGE_LIBIIO
+	select BR2_PACKAGE_LIBAD9361_IIO
+	select BR2_PACKAGE_FFTW
+	select BR2_PACKAGE_FFTW_SINGLE
+	help
+	  OsmoTRX is a software-defined radio transceiver that implements
+	  the GSM/GPRS Layer 1 physical layer. This version targets the
+	  PlutoSDR (ADALM-PLUTO) via libiio and libad9361.
+
+	  https://github.com/Manawyrm/osmo-trx-pluto
+
+comment "osmo-trx-pluto needs a toolchain w/ C++, threads, and ARM NEON"
+	depends on !BR2_INSTALL_LIBSTDCPP || !BR2_TOOLCHAIN_HAS_THREADS || \
+		!BR2_ARM_CPU_HAS_NEON

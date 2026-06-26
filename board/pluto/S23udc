@@ -134,6 +134,9 @@ case "$1" in
 		# Launch SDR USB gadget, without logging
 		start-stop-daemon -S -b -q -m -p /var/run/sdr_usb_gadget.pid -x  /usr/sbin/sdr_usb_gadget -- $SDR_USB_GADGET_OPTS
 	fi
+	sleep 2
+	start-stop-daemon -S -b -q -m -p /var/run/osmo-trx-pluto.pid -x  /usr/bin/osmo-trx-pluto -C /etc/osmo-trx-pluto.cfg
+
 	sleep 0.2
 
 	echo ci_hdrc.0 > $GADGET/UDC

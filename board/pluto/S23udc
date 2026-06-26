@@ -135,7 +135,7 @@ case "$1" in
 		start-stop-daemon -S -b -q -m -p /var/run/sdr_usb_gadget.pid -x  /usr/sbin/sdr_usb_gadget -- $SDR_USB_GADGET_OPTS
 	fi
 	sleep 2
-	start-stop-daemon -S -b -q -m -p /var/run/osmo-trx-pluto.pid -x  /usr/bin/osmo-trx-pluto -C /etc/osmo-trx-pluto.cfg
+	start-stop-daemon -S -b -q -m -p /var/run/osmo-trx-pluto.pid -x /opt/osmo-trx-pluto.sh
 
 	sleep 0.2
 
